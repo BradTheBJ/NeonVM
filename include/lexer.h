@@ -2,15 +2,24 @@
 
 #include <vector>
 #include <string>
+#include <filesystem>
 #include "VM.h"
 
 namespace NeonVM
 {
-    enum class Tokens; // Forward declare
+    enum class TokenTypes
+    {
+        // These tokens are somewhat based of x86 NASM/Intel style Assembely
+        REG_TOKEN,
+        MOV_TOKEN,
+        VALUE_TOKEN,
+        FUNCTION_TOKEN, // To be implmented later
+    };
 
     struct Token
     {
-        Tokens type;
+        Token(TokenTypes type, std::string content) : type(type), content(content) {};
+        TokenTypes type;
         std::string content;
     };
 
@@ -19,12 +28,10 @@ namespace NeonVM
     public:
         Lexer() = default;
         ~Lexer() = default;
-        std::vector<Token> Lex();
+        std::vector<Token> Lex(const std::filesystem::path& filePath);
 
     private:
-        enum class TokenTypes
-        {
-            NONE
-        };
+        std::string fileToString(const std::filesystem::path& filePath);
+
     };
 }
