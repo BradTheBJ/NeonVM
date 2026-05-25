@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <filesystem>
 #include "VM.h"
 
 namespace NeonVM
@@ -29,5 +30,8 @@ namespace NeonVM
             MOV_TOKEN,
             FUNCTION_TOKEN, // To be implmented later
         };
+
+        std::string fileToString(const std::filesystem::path& filePath);
+
     };
 }
