@@ -6,10 +6,13 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Recursively grab all source/header files
-file(GLOB_RECURSE SRC_FILES
-        "${CMAKE_SOURCE_DIR}/src/*.cpp"
-        "${CMAKE_SOURCE_DIR}/include/*.hpp"
+# Explicitly list source files for reliable compilation and IDE detection
+# This is only temporary
+set(SRC_FILES
+        src/main.cpp
+        src/lexer.cpp
+        src/parser.cpp
+        src/VM.cpp
 )
 
 add_executable(NeonVM ${SRC_FILES})

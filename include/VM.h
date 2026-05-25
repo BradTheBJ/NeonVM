@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include <any>
+#include <filesystem>
 
 namespace NeonVM
 {
@@ -11,6 +12,8 @@ namespace NeonVM
         public:
             VM() = default;
             ~VM() = default;
+            void run(const std::filesystem::path& filePath);
+            void printRegisters() const;
         private:
             class Lexer;
             class Parser;

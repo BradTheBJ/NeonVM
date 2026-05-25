@@ -27,6 +27,12 @@ namespace NeonVM
         {
             char c = fileString[i];
 
+            if (std::isspace(c))
+            {
+                buffer.clear();
+                continue;
+            }
+
             buffer += c;
 
             if (buffer == "mov")
