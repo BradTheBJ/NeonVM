@@ -24,7 +24,10 @@ namespace NeonVM
     private:
         enum class TokenTypes
         {
-            NONE
+            // These tokens are somewhat based of x86 NASM/Intel style Assembely
+            REG_TOKEN,
+            MOV_TOKEN,
+            FUNCTION_TOKEN, // To be implmented later
         };
     };
 }
