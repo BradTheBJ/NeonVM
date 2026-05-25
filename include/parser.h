@@ -8,10 +8,11 @@ namespace NeonVM
     class VM::Parser
     {
         public:
-            Parser() = default;
+            Parser(std::vector<Token> tokens) : tokens(tokens) {}
             ~Parser() = default;
-            void parse(std::vector<Token>);
+            void parse();
         private:
-            void peekAhead(const int& index);
+            std::vector<Token> tokens;
+            Token peekAhead(const int& index, const int& length);
     };
 }

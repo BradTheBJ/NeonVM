@@ -34,7 +34,7 @@ namespace NeonVM
                 tokens.push_back(Token(TokenTypes::MOV_TOKEN, buffer));
                 buffer.clear();
             }
-            else if (c == 'r')
+            else if (c == 'r' && buffer == "r")
             {
                 std::string reg = "r";
 
@@ -57,8 +57,8 @@ namespace NeonVM
                 }
                 tokens.push_back(Token(TokenTypes::VALUE_TOKEN, buffer));
                 buffer.clear();
-                return tokens;
             }
         }
+        return tokens;
     }
 }

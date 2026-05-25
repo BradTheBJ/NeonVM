@@ -7,7 +7,14 @@
 
 namespace NeonVM
 {
-    enum class TokenTypes; // Forward declare
+    enum class TokenTypes
+    {
+        // These tokens are somewhat based of x86 NASM/Intel style Assembely
+        REG_TOKEN,
+        MOV_TOKEN,
+        VALUE_TOKEN,
+        FUNCTION_TOKEN, // To be implmented later
+    };
 
     struct Token
     {
@@ -24,15 +31,6 @@ namespace NeonVM
         std::vector<Token> Lex(const std::filesystem::path& filePath);
 
     private:
-        enum class TokenTypes
-        {
-            // These tokens are somewhat based of x86 NASM/Intel style Assembely
-            REG_TOKEN,
-            MOV_TOKEN,
-            VALUE_TOKEN,
-            FUNCTION_TOKEN, // To be implmented later
-        };
-
         std::string fileToString(const std::filesystem::path& filePath);
 
     };
